@@ -31,9 +31,13 @@ public class CureApiApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		// Add Customer objects and save these to db
-		Customer customer1 = new Customer("Yusuf", "Kara");
-		Customer customer2 = new Customer("Muhamed", "Emin");
-		customerRepository.saveAll(Arrays.asList(customer1, customer2));
+		Customer customer1 = new Customer("Yusuf", "Kara", "Meeresstrasse", "33", "23111","Mülheim an der Ruhr","+492112213123", "katerina@cure.app");
+		Customer customer2 = new Customer("Muhamed", "Emin", "Essenerstrasse", "98", "43212", "Essen", "+492112121263", "muhamedemin@cure.app");
+		Customer customer3 = new Customer("Katerina", "Kati", "Kölnerstrasse", "20", "50321","Köln","+492112213123", "yusufkara@cure.app");
+		Customer customer4 = new Customer("Max", "Mustermann", "Peterstrasse", "56", "38903","Berlin","+492112213123", "yusufkara@cure.app");
+		Customer customer5 = new Customer("Gürsel", "Gürbüz", "Beulenstrasse", "766", "65342","Mannheim","+492112213123", "yusufkara@cure.app");
+
+		customerRepository.saveAll(Arrays.asList(customer1, customer2, customer3, customer4, customer5));
 
 		Job job1 = new Job("Lenkrad", 200, customer1);
 		Job job2 = new Job("Sitz", 425, customer2);
