@@ -1,7 +1,7 @@
 package de.yusufkara.cureapi;
 
-import de.yusufkara.cureapi.domain.Customer;
-import de.yusufkara.cureapi.domain.Job;
+import de.yusufkara.cureapi.model.Customer;
+import de.yusufkara.cureapi.model.Job;
 import de.yusufkara.cureapi.repository.CustomerRepository;
 import de.yusufkara.cureapi.repository.JobRepository;
 import org.slf4j.Logger;

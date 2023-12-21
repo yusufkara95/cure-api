@@ -1,4 +1,4 @@
-package de.yusufkara.cureapi.domain;
+package de.yusufkara.cureapi.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
