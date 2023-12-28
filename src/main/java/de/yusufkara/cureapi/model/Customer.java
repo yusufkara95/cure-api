@@ -1,16 +1,17 @@
-package de.yusufkara.cureapi.Model;
+package de.yusufkara.cureapi.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import org.springframework.data.annotation.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
-public class Customer {
-
-    @jakarta.persistence.Id
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
+public class Customer{
     @Id
-    @GeneratedValue
-    private Long customerID;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long customerId;
     private String firstName;
     private String lastName;
     private String streetAddress;
@@ -20,12 +21,37 @@ public class Customer {
     private String phoneNumber;
     private String email;
 
-    public Long getCustomerID() {
-        return customerID;
+    public Customer() {};
+
+    public Customer(String firstName, String lastName, String streetAddress, String houseNumber, String postalCode, String city, String phoneNumber, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.streetAddress = streetAddress;
+        this.houseNumber = houseNumber;
+        this.postalCode = postalCode;
+        this.city = city;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
     }
 
-    public void setCustomerID(Long customerID) {
-        this.customerID = customerID;
+    @JsonIgnore
+    @OneToMany(cascade=CascadeType.ALL, mappedBy="customer")
+    private List<Job> jobs;
+
+    public List<Job> getJobs()  {
+        return jobs;
+    }
+
+    public void setJobs(List<Job> jobs)  {
+        this.jobs = jobs;
+    }
+
+    public Long getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
     }
 
     public String getFirstName() {
