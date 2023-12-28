@@ -1,4 +1,4 @@
-package de.yusufkara.cureapi.domain;
+package de.yusufkara.cureapi.model;
 
 import jakarta.persistence.*;
 
